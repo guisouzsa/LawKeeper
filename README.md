@@ -1,6 +1,3 @@
-Claro! Aqui está o **README** ajustado conforme sua solicitação, com foco apenas no **projeto**, suas **funcionalidades** e **tecnologias utilizadas**. A parte de contribuição foi removida, deixando o texto mais direto e voltado para o uso e compreensão do sistema.
-
----
 
 # LawKeeper
 
@@ -75,12 +72,3 @@ Gerencia prazos, compromissos e ações do dia a dia.
 * **Banco de Dados**: MySQL
 * **Controle de Versão**: Git, GitHub
 
----
-
-## 📱 Entre em contato
-
-Se tiver alguma dúvida ou sugestão, entre em contato com a equipe de desenvolvimento através do [email@dominio.com](mailto:email@dominio.com) ou abra uma **issue** no repositório.
-
----
-
-Esse formato deixa o README direto ao ponto, com ênfase nas funcionalidades e tecnologias do projeto, sem incluir partes sobre contribuição ou licenciamento. É um formato claro para quem quer entender rapidamente o que o projeto faz e como utilizá-lo.
