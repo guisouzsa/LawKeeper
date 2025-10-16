@@ -1,84 +1,86 @@
+Claro! Aqui está o **README** ajustado conforme sua solicitação, com foco apenas no **projeto**, suas **funcionalidades** e **tecnologias utilizadas**. A parte de contribuição foi removida, deixando o texto mais direto e voltado para o uso e compreensão do sistema.
+
+---
+
 # LawKeeper
 
-**LawKeeper** é um sistema web simples e funcional para organização da rotina jurídica.  
-Permite cadastrar, consultar, editar e excluir informações importantes de forma clara e independente.
+**LawKeeper** é um sistema web simples e eficiente, criado para ajudar profissionais da área jurídica a organizarem suas rotinas de forma clara e objetiva. O sistema permite o cadastro, consulta, edição e exclusão de informações importantes de forma clara e independente, facilitando o gerenciamento de clientes, processos, andamentos e tarefas.
 
 ---
 
 ## 🔧 Funcionalidades
 
-O sistema é dividido em módulos independentes. Cada módulo funciona separadamente, sem obrigatoriedade de vínculo entre cadastros.
-
----
-
-## 📂 Módulos do Sistema
+O **LawKeeper** é composto por módulos independentes, permitindo a organização das principais informações jurídicas sem a necessidade de interdependência entre eles. A seguir, estão as funcionalidades de cada módulo:
 
 ### 👤 Clientes
 
-Armazena dados de pessoas físicas ou jurídicas.
+Permite o cadastro e gestão de dados de pessoas físicas ou jurídicas.
 
 **Campos:**
-- Nome completo  
-- CPF ou CNPJ  
-- Telefone  
-- E-mail  
-- Endereço  
 
----
+* Nome completo
+* CPF ou CNPJ
+* Telefone
+* E-mail
+* Endereço
 
 ### 📁 Processos
 
-Gerencia registros de processos jurídicos.
+Gerencia o cadastro e a atualização de informações relacionadas aos processos jurídicos.
 
 **Campos:**
-- Número do processo  
-- Tipo (Ex: Civil, Penal, Trabalhista)  
-- Status (Ex: Em andamento, Arquivado, Finalizado)  
-- Descrição  
 
----
+* Número do processo
+* Tipo (Ex: Civil, Penal, Trabalhista)
+* Status (Ex: Em andamento, Arquivado, Finalizado)
+* Descrição
 
 ### 📝 Andamentos
 
-Registra movimentações ou eventos jurídicos.
+Registra e organiza os eventos e movimentações dos processos.
 
 **Campos:**
-- Título do andamento  
-- Tipo (Ex: Audiência, Sentença, Petição)  
-- Data  
-- Descrição  
 
----
+* Título do andamento
+* Tipo (Ex: Audiência, Sentença, Petição)
+* Data
+* Descrição
 
 ### 📌 Tarefas
 
-Organiza prazos, compromissos e ações do dia a dia.
+Gerencia prazos, compromissos e ações do dia a dia.
 
 **Campos:**
-- Título da tarefa  
-- Data limite  
-- Status (Pendente, Concluída, Atrasada)  
-- Descrição  
+
+* Título da tarefa
+* Data limite
+* Status (Pendente, Concluída, Atrasada)
+* Descrição
 
 ---
 
 ## ✅ Recursos Gerais
 
-- Cadastro, edição e exclusão de registros em todos os módulos  
-- Estrutura simples e intuitiva  
-- Interface limpa e acessível  
-- Validação de dados com mensagens claras  
-- Dados salvos de forma separada, sem dependência entre módulos  
+* Cadastro, edição e exclusão de registros nos módulos de **Clientes**, **Processos**, **Andamentos** e **Tarefas**
+* Interface simples e intuitiva, focada na experiência do usuário
+* Validação de dados com mensagens de erro claras e objetivas
+* Estrutura independente entre os módulos, sem dependências entre os cadastros
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-- Laravel (PHP)  
-- MySQL  
-- Blade  
-- Bootstrap  
-- HTML/CSS  
+* **Backend**: Laravel (PHP)
+* **Frontend**: Blade, Bootstrap, HTML e CSS
+* **Banco de Dados**: MySQL
+* **Controle de Versão**: Git, GitHub
 
 ---
 
+## 📱 Entre em contato
+
+Se tiver alguma dúvida ou sugestão, entre em contato com a equipe de desenvolvimento através do [email@dominio.com](mailto:email@dominio.com) ou abra uma **issue** no repositório.
+
+---
+
+Esse formato deixa o README direto ao ponto, com ênfase nas funcionalidades e tecnologias do projeto, sem incluir partes sobre contribuição ou licenciamento. É um formato claro para quem quer entender rapidamente o que o projeto faz e como utilizá-lo.
