@@ -1,32 +1,28 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('sjg');
+    if (Auth::check()) {
+        return view('dashboard');
+    }
+    return redirect()->route('login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', fn () => view('dashboard'))->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::controller(ProfileController::class)->group(function () {
+        Route::get('/profile', 'edit')->name('profile.edit');
+        Route::patch('/profile', 'update')->name('profile.update');
+        Route::delete('/profile', 'destroy')->name('profile.destroy');
+    });
+
+    Route::resource('clientes', ClienteController::class)
+        ->except(['show']);
 });
 
 require __DIR__.'/auth.php';
-
-
-Route::get("/Clientes",[ClienteController::class, "index"])->name("clientes.index");
-
-Route::get("/Clientes/create",[ClienteController::class, "create"])->name("clientes.create");
-Route::post("/Clientes",[ClienteController::class, "store"])->name("clientes.store");
-
-Route::get("/Clientes/{cliente}/edit",[ClienteController::class, "edit"])->name("clientes.edit");
-Route::put("/Clientes/{cliente}",[ClienteController::class, "update"])->name("clientes.update");
-
-Route::delete("/Clientes/{cliente}",[ClienteController::class, "destroy"])->name("clientes.destroy");
