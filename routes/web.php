@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProcessoController;
+use App\Http\Controllers\AudienciaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->except(['show']);
 
     Route::resource('processos', ProcessoController::class)
+        ->except(['show']);
+
+    Route::resource('audiencias', AudienciaController::class)
         ->except(['show']);
 });
 
