@@ -41,8 +41,6 @@ Gerencia o cadastro e a atualização de informações relacionadas aos processo
 
 ## 🏛️ **Audiências**
 
-(Substitui o módulo de Andamentos)
-
 Registra e organiza as audiências relacionadas aos processos jurídicos.
 
 **Campos:**
