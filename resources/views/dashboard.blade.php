@@ -39,7 +39,7 @@
                     <h3 class="text-white text-lg font-semibold text-center">Audiências</h3>
                 </a>
 
-                <a href="#" class="group relative block p-6 bg-blue-800 rounded-xl shadow-lg hover:shadow-xl hover:bg-blue-700 transition duration-300">
+                <a href="{{ route('tarefas.index') }}" class="group relative block p-6 bg-blue-800 rounded-xl shadow-lg hover:shadow-xl hover:bg-blue-700 transition duration-300">
                     <div class="flex items-center justify-center mb-4">
                         <div class="bg-blue-600 p-3 rounded-full text-white group-hover:bg-blue-500 transition">
                             📌
