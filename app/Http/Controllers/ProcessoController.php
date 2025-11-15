@@ -4,23 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Processo;
+use App\Models\Cliente;  
 
 class ProcessoController extends Controller
 {
     public function index()
     {
-        $processos = Processo::all();
+    
+        $processos = Processo::with('cliente')->get();
+
         return view("processos.index", compact("processos"));
     }
 
     public function create()
     {
-        return view("processos.create");
+        $clientes = Cliente::all();
+        return view('processos.create', compact('clientes'));
     }
 
     public function store(Request $request)
     {
         $dados = $request->only([
+            'cliente_id',     
             'numero_processo',
             'tipo',
             'status',
@@ -37,15 +42,12 @@ class ProcessoController extends Controller
         return redirect()->route('processos.index')->with('success', 'Processo cadastrado com sucesso!');
     }
 
-    public function show(string $id)
-    {
-        //não usar
-    }
-
     public function edit(string $id)
     {
         $processo = Processo::findOrFail($id);
-        return view("processos.edit", compact("processo"));
+        $clientes = Cliente::all();  
+
+        return view("processos.edit", compact("processo", "clientes"));
     }
 
     public function update(Request $request, string $id)
@@ -53,6 +55,7 @@ class ProcessoController extends Controller
         $processo = Processo::findOrFail($id);
 
         $dados = $request->only([
+            'cliente_id',  
             'numero_processo',
             'tipo',
             'status',
