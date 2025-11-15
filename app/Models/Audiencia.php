@@ -7,11 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Audiencia extends Model
 {
     protected $fillable = [
-    'titulo',
-    'tipo',
-    'data_horario',
-    'local',
-    'descricao'
-];
+        'processo_id',
+        'titulo',
+        'tipo',
+        'data_horario',
+        'local',
+        'descricao',
+    ];
 
+    public function processo()
+    {
+        return $this->belongsTo(Processo::class);
+    }
 }
