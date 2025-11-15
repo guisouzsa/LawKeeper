@@ -36,6 +36,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>Cliente</th>
                     <th>Número do Processo</th>
                     <th>Tipo</th>
                     <th>Status</th>
@@ -48,10 +49,14 @@
                 @if(count($processos) > 0)
                     @foreach($processos as $processo)
                         <tr>
+                            <!-- NOME DO CLIENTE -->
+                            <td>{{ $processo->cliente->nomeCompleto }}</td>
+
                             <td>{{ $processo->numero_processo }}</td>
                             <td>{{ $processo->tipo }}</td>
                             <td>{{ $processo->status }}</td>
                             <td>{{ $processo->descricao }}</td>
+
                             <td>
                                 @if($processo->documento)
                                     <a href="{{ asset('storage/' . $processo->documento) }}" target="_blank">
@@ -61,6 +66,7 @@
                                     -
                                 @endif
                             </td>
+
                             <td>
                                 <a href="{{ route('processos.edit', $processo->id) }}" class="btn btn-warning">Editar</a>
 
@@ -75,7 +81,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="6" style="text-align:center;">Nenhum processo cadastrado.</td>
+                        <td colspan="7" style="text-align:center;">Nenhum processo cadastrado.</td>
                     </tr>
                 @endif
             </tbody>
