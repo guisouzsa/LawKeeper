@@ -9,6 +9,7 @@ return new class extends Migration
     {
         Schema::create('processos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('cliente_id')->constrained('clientes')->onDelete('cascade');
             $table->string('numero_processo')->unique();
             $table->string('tipo');     
             $table->string('status');    

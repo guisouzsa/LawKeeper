@@ -6,11 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-   
     public function up(): void
     {
         Schema::create('audiencias', function (Blueprint $table) {
-           $table->id();
+            $table->id();
+            $table->foreignId('processo_id')->constrained('processos')->onDelete('cascade'); 
             $table->string('titulo');
             $table->string('tipo');
             $table->dateTime('data_horario');
@@ -20,7 +20,6 @@ return new class extends Migration
         });
     }
 
-   
     public function down(): void
     {
         Schema::dropIfExists('audiencias');
