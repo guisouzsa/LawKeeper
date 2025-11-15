@@ -4,26 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Audiencia;
+use App\Models\Processo;
 
 class AudienciaController extends Controller
 {
-    
     public function index()
     {
-        $audiencias = Audiencia::all();
+        $audiencias = Audiencia::with('processo.cliente')->get();
         return view("audiencias.index", compact("audiencias"));
+        
     }
 
-    
     public function create()
     {
-        return view("audiencias.create");
+        $processos = Processo::all();
+        return view("audiencias.create", compact('processos'));
+        
     }
 
-    
     public function store(Request $request)
     {
         Audiencia::create($request->only([
+            'processo_id',
             'titulo',
             'tipo',
             'data_horario',
@@ -34,24 +36,20 @@ class AudienciaController extends Controller
         return redirect()->route('audiencias.index')->with('success', 'Audiência cadastrada com sucesso!');
     }
 
-    
-    public function show(string $id)
-    {
-        
-    }
-
     public function edit(string $id)
     {
         $audiencia = Audiencia::findOrFail($id);
-        return view("audiencias.edit", compact("audiencia"));
+        $processos = Processo::all();
+
+        return view("audiencias.edit", compact("audiencia", "processos"));
     }
 
-    
     public function update(Request $request, string $id)
     {
         $audiencia = Audiencia::findOrFail($id);
 
         $audiencia->update($request->only([
+            'processo_id',
             'titulo',
             'tipo',
             'data_horario',
@@ -61,7 +59,6 @@ class AudienciaController extends Controller
 
         return redirect()->route('audiencias.index')->with('success', 'Audiência atualizada com sucesso!');
     }
-
 
     public function destroy(string $id)
     {
