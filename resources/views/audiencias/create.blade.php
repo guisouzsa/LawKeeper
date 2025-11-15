@@ -11,6 +11,14 @@
     <form action="{{ route('audiencias.store') }}" method="post">
         @csrf
 
+        <label for="processo_id">Processo:</label>
+        <select name="processo_id" id="processo_id" required>
+            <option value="">Selecione um processo</option>
+            @foreach($processos as $processo)
+                <option value="{{ $processo->id }}">{{ $processo->numero_processo }}</option>
+            @endforeach
+        </select>
+
         <label for="titulo">Título da audiência:</label>
         <input type="text" name="titulo" id="titulo">
 

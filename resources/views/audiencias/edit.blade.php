@@ -12,6 +12,16 @@
         @method("PUT")
         @csrf
 
+        <label for="processo_id">Processo:</label>
+        <select name="processo_id" id="processo_id" required>
+            @foreach($processos as $processo)
+                <option value="{{ $processo->id }}"
+                    {{ $audiencia->processo_id == $processo->id ? 'selected' : '' }}>
+                    {{ $processo->numero_processo }}
+                </option>
+            @endforeach
+        </select>
+
         <label for="titulo">Título da audiência:</label>
         <input type="text" name="titulo" id="titulo" value="{{ $audiencia->titulo }}">
 

@@ -36,6 +36,8 @@
         <table>
             <thead>
                 <tr>
+                    <th>Processo</th>
+                    <th>Cliente</th>
                     <th>Título</th>
                     <th>Tipo</th>
                     <th>Data e horário</th>
@@ -48,15 +50,33 @@
                 @if(count($audiencias) > 0)
                     @foreach($audiencias as $audiencia)
                         <tr>
+                            <td>
+                                @if($audiencia->processo)
+                                    {{ $audiencia->processo->numero_processo }}
+                                @else
+                                    -
+                                @endif
+                            </td>
+
+                            <td>
+                                @if($audiencia->processo && $audiencia->processo->cliente)
+                                    {{ $audiencia->processo->cliente->nomeCompleto }}
+                                @else
+                                    -
+                                @endif
+                            </td>
+
                             <td>{{ $audiencia->titulo }}</td>
                             <td>{{ $audiencia->tipo }}</td>
                             <td>{{ $audiencia->data_horario }}</td>
                             <td>{{ $audiencia->local }}</td>
                             <td>{{ $audiencia->descricao }}</td>
+
                             <td>
                                 <a href="{{ route('audiencias.edit', $audiencia->id) }}" class="btn btn-warning">Editar</a>
 
-                                <form action="{{ route('audiencias.destroy', $audiencia->id) }}" method="POST" style="display:inline"
+                                <form action="{{ route('audiencias.destroy', $audiencia->id) }}" 
+                                      method="POST" style="display:inline"
                                       onsubmit="return confirm('Tem certeza que deseja excluir esta audiência?');">
                                     @csrf
                                     @method('DELETE')
@@ -67,7 +87,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="6" style="text-align:center;">Nenhuma audiência cadastrada.</td>
+                        <td colspan="8" style="text-align:center;">Nenhuma audiência cadastrada.</td>
                     </tr>
                 @endif
             </tbody>
